@@ -6,7 +6,7 @@ p03_strings.o: alfabeto.cc alfabeto.h cadena.cc cadena.h
 
 clean: 
 	rm *.o
-	rm p02_strings
+	rm p03_strings
 
 
 	
