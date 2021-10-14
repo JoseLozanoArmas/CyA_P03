@@ -16,6 +16,7 @@
 * Referencias: https://campusingenieriaytecnologia2122.ull.es/pluginfile.php/19541/mod_assign/introattachment/0/CyA_2021_2022_P2_Cadenas.pdf?forcedownload=1
 * Enlaces de interés
 * Historial de revisiones
+* - 14/10/21: Desarrollo de la función Potencia y Concatenación. A su vez se modificó el main y la función Menú para poder usar estas mismas
 * 05/10/2021 - Creación (primera versión) del código 
 */     
 
@@ -53,7 +54,7 @@ int main(int argc, char* argv[]) {
     Cadena Texto(lineas); //Constructor de la clase cadena
     Alfabeto conjunto(alfabeto); //Constructor de la clase alfabeto
     lineas = Texto.GetLineas(); 
-    Texto.Menu(numero, potencia, lineas, nueva_cadena, texto_salida); //Activa la función menú que administra el opcode
+    Texto.Menu(numero, potencia, lineas, nueva_cadena, texto_salida); //Activa la función menú que administra el opcode, potencia y nueva cadena
   }  
 
 }

@@ -7,7 +7,7 @@
 * Práctica 2: Símbolos, alfabetos y cadenas
 * Autor: José Lozano Armas
 * Correo: alu0101392561@ull.es
-* Fecha: 05/10/2021
+* Fecha: 14/10/2021
 * Archivo cya-P02-Strings.cc: programa cliente.
 * Contiene la función main del proyecto que usa las clases X e Y
 * que realizan el trabajo de leer el fichero de entrada
@@ -16,6 +16,7 @@
 * Referencias: https://campusingenieriaytecnologia2122.ull.es/pluginfile.php/19541/mod_assign/introattachment/0/CyA_2021_2022_P2_Cadenas.pdf?forcedownload=1
 * Enlaces de interés
 * Historial de revisiones
+* - 14/10/21: Desarrollo de la función Potencia y Concatenación. A su vez se modificó el main y la función Menú para poder usar estas mismas
 * 05/10/2021 - Creación (primera versión) del código 
 */  
 
