@@ -102,9 +102,7 @@ void Cadena::Concatenacion(std::string lineas, std::string nueva_cadena, std::of
 
 void Cadena::Potencia(std::string lineas, int potencia, std::ofstream& texto_salida) {
   std::string aux = lineas;
-  int contador = 0;
-  
-
+  int contador = 0; 
   if(potencia == 0) {
     texto_salida << "&" << std::endl;
   } else {
@@ -120,9 +118,6 @@ void Cadena::Potencia(std::string lineas, int potencia, std::ofstream& texto_sal
       }
     }
   }
-
-
-
 }
 
 void Cadena::Menu(int numero, int potencia, std::string lineas, std::string nueva_cadena, std::ofstream& texto_salida) { //Se basa en un switch que en base al opcode usar una función o otra

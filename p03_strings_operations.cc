@@ -31,9 +31,9 @@ int main(int argc, char* argv[]) {
   std::string nueva_cadena; //Variable para concatenar 
   std::string convertir = argv[3];
   int numero = stoi(convertir); //El opcode de la operación
-  int potencia;
+  int potencia; //Variable que guarda la potencia a elevar
 
-  if (numero == 7) {
+  if (numero == 7) { //En el caso del número ser igual a 6 o 7 solicita que se inserte una cadena
     std::cout << "Introduzca una cadena: ";
     std::cin >> nueva_cadena;
   }
@@ -41,11 +41,10 @@ int main(int argc, char* argv[]) {
   if (numero == 8) {
     std::cout << "Inserte potencia a elevar: ";
     std::cin >> potencia;
-
   }
 
-  if (numero >= 9) {
-    std::cout << "Inserte de nuevo una opción en el intervalo de 1 - 8" << std::endl;
+  if (numero >= 9 || numero <= 0) {
+    std::cout << "Inserte de nuevo una opción en el intervalo de [1 - 8]" << std::endl;
   }
      
   while (!texto_entrada.eof()) {  //Se lee el texto
@@ -55,6 +54,9 @@ int main(int argc, char* argv[]) {
     Alfabeto conjunto(alfabeto); //Constructor de la clase alfabeto
     lineas = Texto.GetLineas(); 
     Texto.Menu(numero, potencia, lineas, nueva_cadena, texto_salida); //Activa la función menú que administra el opcode, potencia y nueva cadena
+
+  
+    //conjunto.PrintAlfabeto(texto_salida);
   }  
 
 }

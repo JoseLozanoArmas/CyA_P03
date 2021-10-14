@@ -21,14 +21,12 @@
 
 #include "alfabeto.h"
 
-
 Alfabeto::Alfabeto(std::string lineas) { //Construye el alfabeto ignorando la cadena (último elemento de la string)
   std::string aux = "";
   for (int i = 0; i < lineas.length(); ++i) {
     if (lineas[i] != ' ') {
       aux = aux + lineas[i];
     } else if (i == lineas.length()) {
-      std::cout << aux;
       alfabeto_.push_back(aux);
       aux = "";
     } else {
@@ -67,7 +65,7 @@ void Alfabeto::PrintAlfabeto(std::ofstream& texto_salida) { //Función que desar
   for(int i = 0; i < alfabeto_.size(); i++) {
     texto_salida << alfabeto_[i];
     if(i != espacio) {
-      texto_salida << " ";
+      texto_salida << ", ";
     }
   }
   texto_salida << "}" << std::endl;
