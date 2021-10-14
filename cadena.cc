@@ -93,7 +93,38 @@ void Cadena::Subcadena (std::string palabra, std::ofstream& texto_salida) { //Pa
   texto_salida << std::endl;
 }
 
-void Cadena::Menu(int numero, std::string lineas, std::ofstream& texto_salida) { //Se basa en un switch que en base al opcode usar una función o otra
+
+void Cadena::Concatenacion(std::string lineas, std::string nueva_cadena, std::ofstream& texto_salida) {
+  lineas = lineas + nueva_cadena;
+  texto_salida << lineas << std::endl;
+}
+
+void Cadena::Potencia(std::string lineas, int potencia, std::ofstream& texto_salida) {
+  std::string aux = lineas;
+  int contador = 0;
+  
+
+  if(potencia == 0) {
+    texto_salida << "&" << std::endl;
+  } else {
+    if(potencia == 1) {
+      texto_salida << lineas << std::endl;
+    } else {
+      if(potencia >= 2) {
+        while (contador != (potencia - 1)) {
+          lineas = lineas + aux;
+          contador++;
+        }
+        texto_salida << lineas << std::endl;
+      }
+    }
+  }
+
+
+
+}
+
+void Cadena::Menu(int numero, int potencia, std::string lineas, std::string nueva_cadena, std::ofstream& texto_salida) { //Se basa en un switch que en base al opcode usar una función o otra
   switch (numero) {
     case 1: Longitud(lineas, texto_salida); //Todos los resultados se aplican al fichero de salida, usando la cadena procesada
     break;
@@ -104,6 +135,10 @@ void Cadena::Menu(int numero, std::string lineas, std::ofstream& texto_salida) {
     case 4: Sufijo(lineas, texto_salida);
     break;
     case 5: Subcadena(lineas, texto_salida);
+    break;
+    case 7: Concatenacion(lineas, nueva_cadena, texto_salida);
+    break;
+    case 8: Potencia(lineas, potencia, texto_salida);
     break;
  }
 }

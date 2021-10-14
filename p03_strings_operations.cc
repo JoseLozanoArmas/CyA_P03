@@ -27,20 +27,33 @@ int main(int argc, char* argv[]) {
   std::ofstream texto_salida (argv[2]);
   std::string lineas;  //Variable que guardará el contenido del fichero
   std::string alfabeto; //Variable auxiliar para construir el vector división
+  std::string nueva_cadena; //Variable para concatenar 
   std::string convertir = argv[3];
   int numero = stoi(convertir); //El opcode de la operación
+  int potencia;
 
-  if (numero >= 6) {
-    std::cout << "Inserte de nuevo una opción en el intervalo de 1 - 5" << std::endl;
+  if (numero == 7) {
+    std::cout << "Introduzca una cadena: ";
+    std::cin >> nueva_cadena;
   }
-  
+
+  if (numero == 8) {
+    std::cout << "Inserte potencia a elevar: ";
+    std::cin >> potencia;
+
+  }
+
+  if (numero >= 9) {
+    std::cout << "Inserte de nuevo una opción en el intervalo de 1 - 8" << std::endl;
+  }
+     
   while (!texto_entrada.eof()) {  //Se lee el texto
     std::getline(texto_entrada,lineas); //se va guardando
     alfabeto = lineas;
     Cadena Texto(lineas); //Constructor de la clase cadena
     Alfabeto conjunto(alfabeto); //Constructor de la clase alfabeto
     lineas = Texto.GetLineas(); 
-    Texto.Menu(numero,lineas,texto_salida); //Activa la función menú que administra el opcode
+    Texto.Menu(numero, potencia, lineas, nueva_cadena, texto_salida); //Activa la función menú que administra el opcode
   }  
 
 }
