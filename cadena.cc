@@ -32,27 +32,34 @@ Cadena::Cadena(std::string lineas) {  //El constructor, se ubica en el final de 
     }
   }
 
+  std::string aux = "";  //Variable para concatenar la string
+  Simbolo simbolo(lineas);
 
-  std::string aux;
-  Simbolo simbolo (aux);  //Variable para concatenar la string
-
-  bool unico = true;  //Variable que determina si solo está la cadena o si tambien contiene el alfabeto
+  bool unico = true;  //Variable que determina si solo está la cadena o si tambien contiene el abecedario
   for (int i = 0; i < lineas.length(); ++i) {  //Recorre toda la cadena del fichero, en el caso de encontrar un espacio 
     if (lineas[i] == ' ') {                    //Asume que no existe solo la cadena y pasa al siguiente if
       unico = false;
     }
+
     if (lineas[i] != ' ') {  //En caso de no encontrar espacios va concatenando los elemetnos para luego guardarlos en el vector 
-      aux = aux + lineas[i];
+      aux = aux + lineas[i];  
     } else if (i == lineas.length()) {
       cadena_.push_back(aux);
       aux = "";  //Una vez guardado reinicia el auxiliar
     } else {
+      std::cout << aux << std::endl;
       cadena_.push_back(aux);
       aux = "";
     }
   }
 
-  //cadena_.pop_back();
+  if(unico == true) {  //En el caso de ser solo la cadena, asume que cada simbolo de la misma es el alfabeto
+    for(int i = 0; i < lineas.length(); ++i) {
+      aux = lineas[i]; //Los separa caracter por caracter y las va almacenando
+      cadena_.push_back(aux);
+    }
+  }
+
 
 }
 

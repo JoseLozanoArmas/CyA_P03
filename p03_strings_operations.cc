@@ -60,7 +60,7 @@ int main(int argc, char* argv[]) {
     simbolo = Traducir_Cadena.GetSimbolo();
     lineas = Texto.GetLineas();
 
-    /*
+  /*
     switch (numero) {
      case 1: Texto.Longitud(lineas, texto_salida); //Todos los resultados se aplican al fichero de salida, usando la cadena procesada
       break;
@@ -77,10 +77,12 @@ int main(int argc, char* argv[]) {
      case 8: Texto.Potencia(lineas, potencia, texto_salida);
       break;
  }
- 
-*/  
+ */
+  
 
-  Traducir_Cadena.PrintSimbolo(texto_salida);
+  Texto.PrintCadenas(texto_salida);
+  //Traducir_Cadena.PrintSimbolo(texto_salida);
+  //conjunto.PrintAlfabeto(texto_salida);
 
  
   }  

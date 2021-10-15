@@ -28,35 +28,22 @@
 
 class Simbolo {
  public:
-  Simbolo (std::string palabra);
-  std::string GetSimbolo();
-  //friend bool operator==(const Simbolo& simbolo_1, const Simbolo& simbolo_2); 
-  //friend bool operator<(const Simbolo& simbolo1, const Simbolo& simbolo2);
-  //friend bool operator>(const Simbolo& simbolo1, const Simbolo& simbolo2);
-  void PrintSimbolo(std::ofstream& texto_salida);
-  
+  Simbolo (std::string palabra); //Constructor de la clase
+  std::string GetSimbolo(); //Devuelve los simbolos
+  friend bool operator==(const Simbolo simbolo_1, const Simbolo simbolo_2); //Sobrecarga del operador == para 2 objetos simbolo
+  friend bool operator<(const Simbolo simbolo_1, const Simbolo simbolo_2); //Sobrecarga del operador < para 2 objetos simbolo
+  friend bool operator>(const Simbolo simbolo_1, const Simbolo simbolo_2); //Sobrecarga del operador > para 2 objetos simbolo
+  void PrintSimbolo(std::ofstream& texto_salida); //Imprime en el fichero en un texto
  private:
-  std::string simbolo_; 
+  std::string simbolo_; //El atributo símbolo
 };
 
-/*
-
-bool operator==(const Simbolo& simbolo_1, const Simbolo& simbolo_2) {
-  return (simbolo_1.simbolo_ == simbolo_2.simbolo_);
-}
-
-*/
 
 
-/*
-bool operator<(const Simbolo& simbolo1, const Simbolo& simbolo2) {
-  return (simbolo1.simbolo_ < simbolo2.simbolo_);
-}
 
-bool operator>(const Simbolo& simbolo1, const Simbolo& simbolo2) {
-  return (simbolo1.simbolo_ > simbolo2.simbolo_);
-}
-*/
+
+
+
 
 
 

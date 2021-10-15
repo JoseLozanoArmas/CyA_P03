@@ -16,22 +16,34 @@
 * Referencias: https://campusingenieriaytecnologia2122.ull.es/pluginfile.php/19541/mod_assign/introattachment/0/CyA_2021_2022_P2_Cadenas.pdf?forcedownload=1
 * Enlaces de interés
 * Historial de revisiones
+* - 15/10/21: Creación de las sobrecargas de los operadores y del getter que devuelve el simbolo
 * 15/10/2021 - Creación (primera versión) del código 
 */  
 
 #include "simbolo.h"
 
-Simbolo::Simbolo(std::string palabra) {
+Simbolo::Simbolo(std::string palabra) { //Le da al simbolo el valor de la string que se le pasa
   simbolo_ = palabra;
 }
 
-std::string Simbolo::GetSimbolo() {
+std::string Simbolo::GetSimbolo() { //Devuelve el simbolo
   return simbolo_;
 }
 
-void Simbolo::PrintSimbolo(std::ofstream& texto_salida) {
+void Simbolo::PrintSimbolo(std::ofstream& texto_salida) { //Imprime en un fichero el símbolo
   texto_salida << simbolo_ << std::endl;
 }
 
+bool operator==(const Simbolo simbolo_1, const Simbolo simbolo_2) { //Devuelve si 2 objetos son iguales
+  return (simbolo_1.simbolo_ == simbolo_2.simbolo_);
+}
   
+
+bool operator<(const Simbolo simbolo_1, const Simbolo simbolo_2) { //Devuelve si un objeto es menor que otro
+  return (simbolo_1.simbolo_ < simbolo_2.simbolo_);
+}
+
+bool operator>(const Simbolo simbolo_1, const Simbolo simbolo_2) { //Devuelve si un objeto es mayor que otro
+  return (simbolo_1.simbolo_ > simbolo_2.simbolo_);
+}
 
