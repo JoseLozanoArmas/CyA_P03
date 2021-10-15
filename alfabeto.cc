@@ -41,23 +41,7 @@ std::vector<std::string> Alfabeto::GetAlfabeto() {  //Devuelve el alfabeto
   return alfabeto_;
 }
 
-void Alfabeto::SetDivision(std::vector<std::string>& alfabeto_, std::string lineas) { //Va mirando la cadena alfabeto, buscando elementos comunes que
-  std::string aux_1, aux_2, eliminar;                                                 //se asemejen a la cadena, y los incluye
-  for(int i = 0; i < alfabeto_.size(); ++i) {
-    aux_1 = alfabeto_[i];
-    for(int j = 0; j < lineas.length(); ++j) {
-      for(int k = 0; k < aux_1.length(); ++k) {
-        if(aux_1[k] == lineas[j]) {
-          aux_2 = aux_2 + aux_1;     
-        } else {
-          break;
-        }
-        division_.push_back(aux_2);
-        aux_2 = "";
-      } 
-    }
-  }
-}
+
 
 void Alfabeto::PrintAlfabeto(std::ofstream& texto_salida) { //Función que desarrollé para comprobar que funcionaban los cálculos
   int espacio = alfabeto_.size() - 1;

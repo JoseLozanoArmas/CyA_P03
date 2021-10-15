@@ -120,22 +120,4 @@ void Cadena::Potencia(std::string lineas, int potencia, std::ofstream& texto_sal
   }
 }
 
-void Cadena::Menu(int numero, int potencia, std::string lineas, std::string nueva_cadena, std::ofstream& texto_salida) { //Se basa en un switch que en base al opcode usar una función o otra
-  switch (numero) {
-    case 1: Longitud(lineas, texto_salida); //Todos los resultados se aplican al fichero de salida, usando la cadena procesada
-    break;
-    case 2: Inversa(lineas, texto_salida);
-    break;
-    case 3: Prefijo(lineas, texto_salida);
-    break;
-    case 4: Sufijo(lineas, texto_salida);
-    break;
-    case 5: Subcadena(lineas, texto_salida);
-    break;
-    case 7: Concatenacion(lineas, nueva_cadena, texto_salida);
-    break;
-    case 8: Potencia(lineas, potencia, texto_salida);
-    break;
- }
-}
 

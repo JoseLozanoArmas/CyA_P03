@@ -53,7 +53,29 @@ int main(int argc, char* argv[]) {
     Cadena Texto(lineas); //Constructor de la clase cadena
     Alfabeto conjunto(alfabeto); //Constructor de la clase alfabeto
     lineas = Texto.GetLineas(); 
-    Texto.Menu(numero, potencia, lineas, nueva_cadena, texto_salida); //Activa la función menú que administra el opcode, potencia y nueva cadena
+
+    switch (numero) {
+     case 1: Texto.Longitud(lineas, texto_salida); //Todos los resultados se aplican al fichero de salida, usando la cadena procesada
+      break;
+     case 2: Texto.Inversa(lineas, texto_salida);
+      break;
+     case 3: Texto.Prefijo(lineas, texto_salida);
+      break;
+     case 4: Texto.Sufijo(lineas, texto_salida);
+      break;
+     case 5: Texto.Subcadena(lineas, texto_salida);
+      break;
+     case 7: Texto.Concatenacion(lineas, nueva_cadena, texto_salida);
+      break;
+     case 8: Texto.Potencia(lineas, potencia, texto_salida);
+      break;
+ }
+
+
+
+
+
+    //Texto.Menu(numero, potencia, lineas, nueva_cadena, texto_salida); //Activa la función menú que administra el opcode, potencia y nueva cadena
 
   
     //conjunto.PrintAlfabeto(texto_salida);

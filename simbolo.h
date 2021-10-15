@@ -1,4 +1,4 @@
- /*
+/*
 * Universidad de La Laguna
 * Escuela Superior de Ingeniería y Tecnología
 * Grado en Ingeniería Informatíca
@@ -7,7 +7,7 @@
 * Práctica 2: Símbolos, alfabetos y cadenas
 * Autor: José Lozano Armas
 * Correo: alu0101392561@ull.es
-* Fecha: 05/10/2021
+* Fecha: 15/10/2021
 * Archivo cya-P02-Strings.cc: programa cliente.
 * Contiene la función main del proyecto que usa las clases X e Y
 * que realizan el trabajo de leer el fichero de entrada
@@ -16,8 +16,9 @@
 * Referencias: https://campusingenieriaytecnologia2122.ull.es/pluginfile.php/19541/mod_assign/introattachment/0/CyA_2021_2022_P2_Cadenas.pdf?forcedownload=1
 * Enlaces de interés
 * Historial de revisiones
-* 05/10/2021 - Creación (primera versión) del código 
-*/
+* 15/10/2021 - Creación (primera versión) del código 
+*/  
+
 #pragma once
 
 #include <string>
@@ -25,13 +26,10 @@
 #include <iostream>
 #include <vector>
 
-class Alfabeto {
+class Simbolo {
  public:
-  Alfabeto(std::string lineas);
-  std::vector<std::string> GetAlfabeto(); //Devuelve al alfabeto
-  void PrintAlfabeto(std::ofstream& texto_salida); //Función que desarrollé para comprobar que funcionaban los cálculos
-  int GetCardinalidad(); //Devuelve cardinalidad
+  Simbolo (std::string lineas, std::vector<std::string> alfabeto);
  private:
-  int cardinalidad_; //Cantidad de simbolos
-  std::vector<std::string> alfabeto_; //Alfabeto en sí
+  std::vector<std::string> palabra_fraccionada;
 };
+

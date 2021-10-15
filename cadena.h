@@ -38,7 +38,6 @@ class Cadena {
   void Subcadena (std::string palabra, std::ofstream& texto_salida); //Pasa a un fichero la subcadena de la cadena
   void Concatenacion (std::string palabra, std::string nueva_cadena, std::ofstream& texto_salida); //Pasa a un fichero la cadena privada concatenada con la que pasa el usuario
   void Potencia (std::string palabra, int potencia, std::ofstream& texto_salida); //Pasa a un fichero la cadena elevada a la potencia dada
-  void Menu(int numero, int potencia, std::string lineas, std::string nueva_cadena, std::ofstream& texto_salida); //Función que gestiona el opcode
  private: 
   std::string lineas_;  //Atributo linea 
 };
