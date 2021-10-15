@@ -19,3 +19,6 @@
 * 15/10/2021 - Creación (primera versión) del código 
 */  
 
+#include "simbolo.h"
+
+Simbolo::Simbolo();

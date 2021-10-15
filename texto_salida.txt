@@ -1,5 +1,5 @@
-4
-6
-7
-6
-9
+{h, o, l, a}
+{b, u, e, n, a, s}
+{p, e, s, c, a, d, o}
+{a, b, u, e, l, a}
+{hola, adios}

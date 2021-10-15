@@ -27,13 +27,14 @@ int main(int argc, char* argv[]) {
   std::ifstream texto_entrada (argv[1]); //Los ficheros a analizar y operar
   std::ofstream texto_salida (argv[2]);
   std::string lineas;  //Variable que guardará el contenido del fichero
-  std::string alfabeto; //Variable auxiliar para construir el vector división
+  std::string alfabeto; //Variable auxiliar para construir el vector del alfabeto
   std::string nueva_cadena; //Variable para concatenar 
   std::string convertir = argv[3];
   int numero = stoi(convertir); //El opcode de la operación
   int potencia; //Variable que guarda la potencia a elevar
 
-  if (numero == 7) { //En el caso del número ser igual a 6 o 7 solicita que se inserte una cadena
+
+  if (numero == 6 || numero == 7) { //En el caso del número ser igual a 6 o 7 solicita que se inserte una cadena
     std::cout << "Introduzca una cadena: ";
     std::cin >> nueva_cadena;
   }
@@ -49,11 +50,11 @@ int main(int argc, char* argv[]) {
      
   while (!texto_entrada.eof()) {  //Se lee el texto
     std::getline(texto_entrada,lineas); //se va guardando
-    alfabeto = lineas;
+    alfabeto = lineas; //Hace una copia de lineas para el constructor de alfabeto
     Cadena Texto(lineas); //Constructor de la clase cadena
     Alfabeto conjunto(alfabeto); //Constructor de la clase alfabeto
     lineas = Texto.GetLineas(); 
-
+  
     switch (numero) {
      case 1: Texto.Longitud(lineas, texto_salida); //Todos los resultados se aplican al fichero de salida, usando la cadena procesada
       break;
@@ -70,15 +71,9 @@ int main(int argc, char* argv[]) {
      case 8: Texto.Potencia(lineas, potencia, texto_salida);
       break;
  }
-
-
-
-
-
-    //Texto.Menu(numero, potencia, lineas, nueva_cadena, texto_salida); //Activa la función menú que administra el opcode, potencia y nueva cadena
-
+ 
   
-    //conjunto.PrintAlfabeto(texto_salida);
+  //conjunto.PrintAlfabeto(texto_salida);
   }  
 
 }
