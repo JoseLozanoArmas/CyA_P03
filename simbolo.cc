@@ -30,7 +30,8 @@ std::string Simbolo::GetSimbolo() {
 }
 
 void Simbolo::PrintSimbolo(std::ofstream& texto_salida) {
-  texto_salida << simbolo_;
+  texto_salida << simbolo_ << std::endl;
 }
+
 
 
