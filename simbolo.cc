@@ -21,4 +21,16 @@
 
 #include "simbolo.h"
 
-Simbolo::Simbolo();
+Simbolo::Simbolo(std::string palabra) {
+  simbolo_ = palabra;
+}
+
+std::string Simbolo::GetSimbolo() {
+  return simbolo_;
+}
+
+void Simbolo::PrintSimbolo(std::ofstream& texto_salida) {
+  texto_salida << simbolo_;
+}
+
+

@@ -28,8 +28,31 @@
 
 class Simbolo {
  public:
-  Simbolo (std::string lineas, std::vector<std::string> alfabeto);
+  Simbolo (std::string palabra);
+  std::string GetSimbolo();
+  friend bool operator==(const Simbolo& simbolo1, const Simbolo& simbolo2);
+  friend bool operator<(const Simbolo& simbolo1, const Simbolo& simbolo2);
+  friend bool operator>(const Simbolo& simbolo1, const Simbolo& simbolo2);
+  void PrintSimbolo(std::ofstream& texto_salida);
+  
  private:
-  std::vector<std::string> palabra_fraccionada;
+  std::string simbolo_;
 };
+
+bool operator==(const Simbolo& simbolo1, const Simbolo& simbolo2) {
+  return (simbolo1.simbolo_ == simbolo2.simbolo_);
+}
+
+bool operator<(const Simbolo& simbolo1, const Simbolo& simbolo2) {
+  return (simbolo1.simbolo_ < simbolo2.simbolo_);
+}
+
+bool operator>(const Simbolo& simbolo1, const Simbolo& simbolo2) {
+  return (simbolo1.simbolo_ > simbolo2.simbolo_);
+}
+
+
+
+
+
 
