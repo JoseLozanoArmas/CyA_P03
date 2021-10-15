@@ -25,12 +25,15 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include "simbolo.h"
 
   
 class Cadena {
  public:
   Cadena(std::string lineas);  //El constructor
   std::string GetLineas(); //Devuelve lineas
+  void PrintCadenas(std::ofstream& texto_salida);
+
   void Longitud (std::string palabra, std::ofstream& texto_salida); //Pasa a un fichero la longitud de la cadena
   void Inversa (std::string palabra, std::ofstream& texto_salida); //Pasa a un fichero la inversa de la cadena
   void Prefijo (std::string palabra, std::ofstream& texto_salida); //Pasa a un fichero el prefijo de la cadena
@@ -40,5 +43,6 @@ class Cadena {
   void Potencia (std::string palabra, int potencia, std::ofstream& texto_salida); //Pasa a un fichero la cadena elevada a la potencia dada
  private: 
   std::string lineas_;  //Atributo linea 
+  std::vector<Simbolo> cadena_;
 };
 

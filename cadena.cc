@@ -20,7 +20,7 @@
 * 05/10/2021 - Creación (primera versión) del código 
 */  
 
-#include "cadena.h"   
+#include "cadena.h"
   
 Cadena::Cadena(std::string lineas) {  //El constructor, se ubica en el final de una linea del fichero
   for(int i = lineas.length() - 1; i >= 0; --i) { //Y va desde el final hasta que encuentra un espacio almancenando la string
@@ -31,11 +31,45 @@ Cadena::Cadena(std::string lineas) {  //El constructor, se ubica en el final de 
       break;
     }
   }
+
+
+  std::string aux;
+  Simbolo simbolo (aux);  //Variable para concatenar la string
+
+  bool unico = true;  //Variable que determina si solo está la cadena o si tambien contiene el alfabeto
+  for (int i = 0; i < lineas.length(); ++i) {  //Recorre toda la cadena del fichero, en el caso de encontrar un espacio 
+    if (lineas[i] == ' ') {                    //Asume que no existe solo la cadena y pasa al siguiente if
+      unico = false;
+    }
+    if (lineas[i] != ' ') {  //En caso de no encontrar espacios va concatenando los elemetnos para luego guardarlos en el vector 
+      aux = aux + lineas[i];
+    } else if (i == lineas.length()) {
+      cadena_.push_back(aux);
+      aux = "";  //Una vez guardado reinicia el auxiliar
+    } else {
+      cadena_.push_back(aux);
+      aux = "";
+    }
+  }
+
+  //cadena_.pop_back();
+
 }
 
 std::string Cadena::GetLineas() { //Devuelve string, que sería la cadena
   return lineas_;
 }
+
+void Cadena::PrintCadenas(std::ofstream& texto_salida) {
+  std::string aux;
+  Simbolo simbolo(aux);
+  for(int i = 0; i < cadena_.size(); ++i) {
+    texto_salida << aux << " ";
+  }
+  texto_salida << std::endl;
+}
+
+
 
 void Cadena::Longitud (std::string palabra, std::ofstream& texto_salida) { //Deguelve la longitud de la cadena
   texto_salida << palabra.length() << std::endl;

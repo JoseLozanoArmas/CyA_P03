@@ -22,12 +22,14 @@
 
 #include "alfabeto.h"
 #include "cadena.h"
+#include "simbolo.h"
  
 int main(int argc, char* argv[]) {
   std::ifstream texto_entrada (argv[1]); //Los ficheros a analizar y operar
   std::ofstream texto_salida (argv[2]);
   std::string lineas;  //Variable que guardará el contenido del fichero
   std::string alfabeto; //Variable auxiliar para construir el vector del alfabeto
+  std::string simbolo;
   std::string nueva_cadena; //Variable para concatenar 
   std::string convertir = argv[3];
   int numero = stoi(convertir); //El opcode de la operación
@@ -51,10 +53,14 @@ int main(int argc, char* argv[]) {
   while (!texto_entrada.eof()) {  //Se lee el texto
     std::getline(texto_entrada,lineas); //se va guardando
     alfabeto = lineas; //Hace una copia de lineas para el constructor de alfabeto
+    simbolo = lineas;
     Cadena Texto(lineas); //Constructor de la clase cadena
     Alfabeto conjunto(alfabeto); //Constructor de la clase alfabeto
-    lineas = Texto.GetLineas(); 
-  
+    Simbolo Traducir_Cadena(simbolo);
+    simbolo = Traducir_Cadena.GetSimbolo();
+    lineas = Texto.GetLineas();
+
+    /*
     switch (numero) {
      case 1: Texto.Longitud(lineas, texto_salida); //Todos los resultados se aplican al fichero de salida, usando la cadena procesada
       break;
@@ -72,8 +78,11 @@ int main(int argc, char* argv[]) {
       break;
  }
  
-  
-  //conjunto.PrintAlfabeto(texto_salida);
+*/  
+
+  Traducir_Cadena.PrintSimbolo(texto_salida);
+
+ 
   }  
 
 }

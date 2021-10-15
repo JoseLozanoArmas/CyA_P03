@@ -33,5 +33,5 @@ void Simbolo::PrintSimbolo(std::ofstream& texto_salida) {
   texto_salida << simbolo_ << std::endl;
 }
 
-
+  
 
