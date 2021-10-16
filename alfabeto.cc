@@ -24,19 +24,21 @@
 
 Alfabeto::Alfabeto(std::string lineas) { //Construye el alfabeto ignorando la cadena (último elemento de la string)
   std::string aux = "";  //Variable para concatenar la string
+  Simbolo aux2 (aux);
   bool unico = true;  //Variable que determina si solo está la cadena o si tambien contiene el alfabeto
   for (int i = 0; i < lineas.length(); ++i) {  //Recorre toda la cadena del fichero, en el caso de encontrar un espacio 
     if (lineas[i] == ' ') {                    //Asume que no existe solo la cadena y pasa al siguiente if
       unico = false;
     }
-
     if (lineas[i] != ' ') {  //En caso de no encontrar espacios va concatenando los elemetnos para luego guardarlos en el vector 
       aux = aux + lineas[i];
     } else if (i == lineas.length()) {
-      alfabeto_.insert(aux);
+      aux2 = aux;
+      alfabeto_.insert(aux2);
       aux = "";  //Una vez guardado reinicia el auxiliar
     } else {
-      alfabeto_.insert(aux);
+      aux2 = aux;
+      alfabeto_.insert(aux2);
       aux = "";
     }
   }
@@ -44,19 +46,29 @@ Alfabeto::Alfabeto(std::string lineas) { //Construye el alfabeto ignorando la ca
   if(unico == true) {  //En el caso de ser solo la cadena, asume que cada simbolo de la misma es el alfabeto
     for(int i = 0; i < lineas.length(); ++i) {
       aux = lineas[i]; //Los separa caracter por caracter y las va almacenando
-      alfabeto_.insert(aux);
+      aux2 = aux;
+      alfabeto_.insert(aux2);
     }
   }
-
 }
 
+Alfabeto::Alfabeto() { //Constructor por defecto
+  std::set<Simbolo> alfabeto;
+  alfabeto_ = alfabeto;
+}
+
+
+
 void Alfabeto::PrintAlfabeto(std::ofstream& texto_salida) { //Función que desarrollé para comprobar que funcionaban los cálculos
-  std::set<std::string>::iterator indice = alfabeto_.begin();
+  std::set<Simbolo>::iterator indice = alfabeto_.begin(); //Iterador que empieza en el comienzo del conjunto
+  std::string convertir = ""; //Sirve de auxiliar para construir aux e imprimirlo
+  Simbolo aux(convertir);
   int espacio = alfabeto_.size() - 1; //El limite de la impresión
   int condicion = 0; //Esta variable sirve para controlar cuantas ',' imprimir
   texto_salida << "{"; //Comienza añadiendo el principio del conjunto
   while (indice != alfabeto_.end()) {  //Mientras que el indice no llega al final
-    texto_salida << *indice; //Imprime el elemento en el texto
+    aux = *indice; //Guarda el valor del indice para luego imprimirlo
+    texto_salida << aux.GetSimbolo(); //Imprime el elemento en el texto
     if(condicion != espacio) { //Si no llega al limte, sigue imprimiendo ','
       texto_salida << ", ";
     }
@@ -70,6 +82,6 @@ int Alfabeto::GetCardinalidad() { //Devuelve cantidad de simbolos
   return alfabeto_.size();
 }
 
-void Alfabeto::Longitud(std::string palabra, std::ofstream& texto_salida) {
+void Alfabeto::Longitud(std::string palabra, std::ofstream& texto_salida) { //Devuelve la cardinalidad de un alfabeto
   texto_salida << GetCardinalidad() << std::endl;
 }

@@ -35,7 +35,6 @@ int main(int argc, char* argv[]) {
   int numero = stoi(convertir); //El opcode de la operación
   int potencia; //Variable que guarda la potencia a elevar
 
-
   if (numero == 6 || numero == 7) { //En el caso del número ser igual a 6 o 7 solicita que se inserte una cadena
     std::cout << "Introduzca una cadena: ";
     std::cin >> nueva_cadena;
@@ -43,7 +42,10 @@ int main(int argc, char* argv[]) {
 
   if (numero == 8) {
     std::cout << "Inserte potencia a elevar: ";
-    std::cin >> potencia;
+    std::cin >> potencia; 
+    if(potencia <= -1) {
+      std::cout << "Error: Inserte una potencia mayor o igual a 0 " << std::endl;
+    }
   }
 
   if (numero >= 9 || numero <= 0) {
@@ -53,16 +55,16 @@ int main(int argc, char* argv[]) {
   while (!texto_entrada.eof()) {  //Se lee el texto
     std::getline(texto_entrada,lineas); //se va guardando
     alfabeto = lineas; //Hace una copia de lineas para el constructor de alfabeto
-    caracter = lineas;
-    Cadena Texto(lineas); //Constructor de la clase cadena
+    caracter = lineas; //Hace una copia de lineas para el constructor de simbolo
     Alfabeto conjunto(alfabeto); //Constructor de la clase alfabeto
-    Simbolo Simbolo (caracter);
-    caracter = Simbolo.GetSimbolo();
-    lineas = Texto.GetLineas();
+    Cadena Texto(lineas, conjunto); //Constructor de la clase cadena
+    Simbolo Simbolo (caracter); //Constructor de la calse simbolo
+    caracter = Simbolo.GetSimbolo(); //Guarda el contenido en sus respectivas variables
+    lineas = Texto.GetLineas(); 
 
-    /*
+        
     switch (numero) {
-     case 1: Texto.Longitud(lineas, texto_salida); //Todos los resultados se aplican al fichero de salida, usando la cadena procesada
+     case 1: Texto.Longitud(lineas, texto_salida); //Todos los resultados se aplican al fichero de salida, usando la cadena procesada, alfabeto, etc...
       break;
      case 2: Texto.Inversa(lineas, texto_salida);
       break;
@@ -78,16 +80,14 @@ int main(int argc, char* argv[]) {
       break;
      case 8: Texto.Potencia(lineas, potencia, texto_salida);
       break;
- }
-*/
-  
+    }
+        
 
   //Texto.PrintCadenas(texto_salida);
   //Simbolo.PrintSimbolo(texto_salida);
-  conjunto.PrintAlfabeto(texto_salida);
-
+  //conjunto.PrintAlfabeto(texto_salida);
  
-  }  
+  }
 
 }
  

@@ -22,7 +22,8 @@
 
 #include "cadena.h"
   
-Cadena::Cadena(std::string lineas) {  //El constructor, se ubica en el final de una linea del fichero
+Cadena::Cadena(std::string lineas, Alfabeto alfabeto) {  //El constructor, se ubica en el final de una linea del fichero
+  //Parte del constructor dedicada a desarrollar el atributo lineas_
   for(int i = lineas.length() - 1; i >= 0; --i) { //Y va desde el final hasta que encuentra un espacio almancenando la string
     if (lineas[i] != ' ') {
       lineas_ = lineas[i] + lineas_;
@@ -31,10 +32,9 @@ Cadena::Cadena(std::string lineas) {  //El constructor, se ubica en el final de 
       break;
     }
   }
-
+  //Parte del constructor dedicada a desarrollar el atributo simbolo_
   std::string aux = "";  //Variable para concatenar la string
   Simbolo simbolo(lineas);
-
   bool unico = true;  //Variable que determina si solo está la cadena o si tambien contiene el alfabeto
   for (int i = 0; i < lineas.length(); ++i) {  //Recorre toda la cadena del fichero, en el caso de encontrar un espacio 
     if (lineas[i] == ' ') {                    //Asume que no existe solo la cadena y pasa al siguiente if
@@ -60,7 +60,14 @@ Cadena::Cadena(std::string lineas) {  //El constructor, se ubica en el final de 
   }
 
 
+
+  //Parte del constructor dedicada a desarrollar el atributo alfabeto_
+  Alfabeto construir(lineas); //Construimos un objeto Alfabeto, que tendrá el valor de lineas, para luego formar parte del atributo
+  construir = lineas;
+  alfabeto = construir;
 }
+
+
 
 std::string Cadena::GetLineas() { //Devuelve string, que sería la cadena
   return lineas_;

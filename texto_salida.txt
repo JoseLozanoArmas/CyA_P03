@@ -1,5 +1,0 @@
-{a, h, l, o}
-{a, b, e, n, s, u}
-{a, c, d, e, o, p, s}
-{a, b, e, l, u}
-{adios, hola}

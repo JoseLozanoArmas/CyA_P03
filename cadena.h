@@ -26,11 +26,12 @@
 #include <iostream>
 #include <vector>
 #include "simbolo.h"
+#include "alfabeto.h"
 
   
 class Cadena {
  public:
-  Cadena(std::string lineas);  //El constructor
+  Cadena(std::string lineas, Alfabeto alfabeto);  //El constructor
   std::string GetLineas(); //Devuelve lineas
   void PrintCadenas(std::ofstream& texto_salida);
   void Longitud (std::string palabra, std::ofstream& texto_salida); //Pasa a un fichero la longitud de la cadena
@@ -42,6 +43,7 @@ class Cadena {
   void Potencia (std::string palabra, int potencia, std::ofstream& texto_salida); //Pasa a un fichero la cadena elevada a la potencia dada
  private: 
   std::string lineas_;  //Atributo linea 
-  std::vector<Simbolo> cadena_;
+  std::vector<Simbolo> cadena_; //Atributo cadena
+  Alfabeto alfabeto(std::string); //Atributo alfabeto
 };
 
