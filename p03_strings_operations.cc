@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
   std::ofstream texto_salida (argv[2]);
   std::string lineas;  //Variable que guardará el contenido del fichero
   std::string alfabeto; //Variable auxiliar para construir el vector del alfabeto
-  std::string simbolo;
+  std::string caracter;
   std::string nueva_cadena; //Variable para concatenar 
   std::string convertir = argv[3];
   int numero = stoi(convertir); //El opcode de la operación
@@ -53,14 +53,14 @@ int main(int argc, char* argv[]) {
   while (!texto_entrada.eof()) {  //Se lee el texto
     std::getline(texto_entrada,lineas); //se va guardando
     alfabeto = lineas; //Hace una copia de lineas para el constructor de alfabeto
-    simbolo = lineas;
+    caracter = lineas;
     Cadena Texto(lineas); //Constructor de la clase cadena
     Alfabeto conjunto(alfabeto); //Constructor de la clase alfabeto
-    Simbolo Traducir_Cadena(simbolo);
-    simbolo = Traducir_Cadena.GetSimbolo();
+    Simbolo Simbolo (caracter);
+    caracter = Simbolo.GetSimbolo();
     lineas = Texto.GetLineas();
 
-  /*
+    /*
     switch (numero) {
      case 1: Texto.Longitud(lineas, texto_salida); //Todos los resultados se aplican al fichero de salida, usando la cadena procesada
       break;
@@ -72,17 +72,19 @@ int main(int argc, char* argv[]) {
       break;
      case 5: Texto.Subcadena(lineas, texto_salida);
       break;
+     case 6: Simbolo.Comparacion(lineas, nueva_cadena, texto_salida);
+      break;
      case 7: Texto.Concatenacion(lineas, nueva_cadena, texto_salida);
       break;
      case 8: Texto.Potencia(lineas, potencia, texto_salida);
       break;
  }
- */
+*/
   
 
-  Texto.PrintCadenas(texto_salida);
-  //Traducir_Cadena.PrintSimbolo(texto_salida);
-  //conjunto.PrintAlfabeto(texto_salida);
+  //Texto.PrintCadenas(texto_salida);
+  //Simbolo.PrintSimbolo(texto_salida);
+  conjunto.PrintAlfabeto(texto_salida);
 
  
   }  

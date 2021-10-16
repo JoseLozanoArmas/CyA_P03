@@ -47,3 +47,27 @@ bool operator>(const Simbolo simbolo_1, const Simbolo simbolo_2) { //Devuelve si
   return (simbolo_1.simbolo_ > simbolo_2.simbolo_);
 }
 
+void Simbolo::Comparacion(std::string lineas, std::string nueva_cadena,std::ofstream& texto_salida) {
+  int contar_coincidencias = 0;
+  for (int i = 0; i < lineas.length(); ++i) {
+    for (int j = 0; j < nueva_cadena.length(); ++j) {
+      if(lineas[i] == nueva_cadena[j]) {
+        contar_coincidencias++;
+      }
+    }
+  }
+  if(contar_coincidencias == lineas.length()) {
+    texto_salida << lineas << " == " << nueva_cadena << std::endl;
+  } else if (contar_coincidencias == 0) {
+    texto_salida << lineas << " != " << nueva_cadena << std::endl;
+  }
+
+  if(contar_coincidencias != lineas.length() && contar_coincidencias != 0) {
+    if (lineas.length() > nueva_cadena.length()) {
+      texto_salida << lineas << " > " << nueva_cadena << std::endl;
+    } else {
+      texto_salida << lineas << " < " << nueva_cadena << std::endl;
+    }
+  }
+
+}

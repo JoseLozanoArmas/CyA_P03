@@ -34,6 +34,8 @@ class Simbolo {
   friend bool operator<(const Simbolo simbolo_1, const Simbolo simbolo_2); //Sobrecarga del operador < para 2 objetos simbolo
   friend bool operator>(const Simbolo simbolo_1, const Simbolo simbolo_2); //Sobrecarga del operador > para 2 objetos simbolo
   void PrintSimbolo(std::ofstream& texto_salida); //Imprime en el fichero en un texto
+  void Comparacion (std::string palabra, std::string nueva_linea, std::ofstream& texto_salida); 
+
  private:
   std::string simbolo_; //El atributo símbolo
 };

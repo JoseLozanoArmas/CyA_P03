@@ -35,7 +35,7 @@ Cadena::Cadena(std::string lineas) {  //El constructor, se ubica en el final de 
   std::string aux = "";  //Variable para concatenar la string
   Simbolo simbolo(lineas);
 
-  bool unico = true;  //Variable que determina si solo está la cadena o si tambien contiene el abecedario
+  bool unico = true;  //Variable que determina si solo está la cadena o si tambien contiene el alfabeto
   for (int i = 0; i < lineas.length(); ++i) {  //Recorre toda la cadena del fichero, en el caso de encontrar un espacio 
     if (lineas[i] == ' ') {                    //Asume que no existe solo la cadena y pasa al siguiente if
       unico = false;
@@ -47,7 +47,6 @@ Cadena::Cadena(std::string lineas) {  //El constructor, se ubica en el final de 
       cadena_.push_back(aux);
       aux = "";  //Una vez guardado reinicia el auxiliar
     } else {
-      std::cout << aux << std::endl;
       cadena_.push_back(aux);
       aux = "";
     }
@@ -68,18 +67,18 @@ std::string Cadena::GetLineas() { //Devuelve string, que sería la cadena
 }
 
 void Cadena::PrintCadenas(std::ofstream& texto_salida) {
-  std::string aux;
-  Simbolo simbolo(aux);
+  std::string aux; //Variable auxiliar que guarda el simbolo
   for(int i = 0; i < cadena_.size(); ++i) {
-    texto_salida << aux << " ";
+    aux = cadena_[i].GetSimbolo(); //Con un geter le asignamos dicho valor
+    texto_salida << aux << " "; //Pasamos el simbolo al texto de salida
   }
-  texto_salida << std::endl;
+  texto_salida << std::endl; //Al finalizar imprimis un endl para que dar lugar a la siguiente línea
 }
 
 
 
 void Cadena::Longitud (std::string palabra, std::ofstream& texto_salida) { //Deguelve la longitud de la cadena
-  texto_salida << palabra.length() << std::endl;
+  texto_salida << palabra.length() << std::endl; 
 }
 
 void Cadena::Inversa (std::string palabra, std::ofstream& texto_salida) { //Coge la string y le da la vuelta (recorriendo la misma del final al principio)
@@ -134,7 +133,6 @@ void Cadena::Subcadena (std::string palabra, std::ofstream& texto_salida) { //Pa
   }
   texto_salida << std::endl;
 }
-
 
 void Cadena::Concatenacion(std::string lineas, std::string nueva_cadena, std::ofstream& texto_salida) {
   lineas = lineas + nueva_cadena;

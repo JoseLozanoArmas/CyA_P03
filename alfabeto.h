@@ -24,14 +24,15 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <set>
 
 class Alfabeto {
  public:
   Alfabeto(std::string lineas);
-  std::vector<std::string> GetAlfabeto(); //Devuelve al alfabeto
   void PrintAlfabeto(std::ofstream& texto_salida); //Función que desarrollé para comprobar que funcionaban los cálculos
   int GetCardinalidad(); //Devuelve cardinalidad
+  void Longitud (std::string palabra, std::ofstream& texto_salida); //Pasa a un fichero la longitud de la cadena
  private:
   int cardinalidad_; //Cantidad de simbolos
-  std::vector<std::string> alfabeto_; //Alfabeto en sí
+  std::set<std::string> alfabeto_; //Alfabeto en sí
 };
