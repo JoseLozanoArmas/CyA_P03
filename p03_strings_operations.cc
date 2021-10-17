@@ -81,12 +81,6 @@ int main(int argc, char* argv[]) {
      case 8: Texto.Potencia(lineas, potencia, texto_salida);
       break;
     }
-       
-
-  //Texto.PrintCadenas(texto_salida);
-  //Texto.PrintFraccion(texto_salida);
-  //Simbolo.PrintSimbolo(texto_salida);
-  //conjunto.PrintAlfabeto(texto_salida);
  
   }
 
