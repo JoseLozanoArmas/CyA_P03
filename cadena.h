@@ -34,6 +34,7 @@ class Cadena {
   Cadena(std::string lineas, Alfabeto alfabeto);  //El constructor
   std::string GetLineas(); //Devuelve lineas
   void PrintCadenas(std::ofstream& texto_salida);
+  void PrintFraccion(std::ofstream& texto_salida);
   void Longitud (std::string palabra, std::ofstream& texto_salida); //Pasa a un fichero la longitud de la cadena
   void Inversa (std::string palabra, std::ofstream& texto_salida); //Pasa a un fichero la inversa de la cadena
   void Prefijo (std::string palabra, std::ofstream& texto_salida); //Pasa a un fichero el prefijo de la cadena
@@ -44,6 +45,7 @@ class Cadena {
  private: 
   std::string lineas_;  //Atributo linea 
   std::vector<Simbolo> cadena_; //Atributo cadena
+  std::vector<Simbolo> palabra_fraccionada_; //Vector que acumula la palabra fraccionada
   Alfabeto alfabeto(std::string); //Atributo alfabeto
 };
 

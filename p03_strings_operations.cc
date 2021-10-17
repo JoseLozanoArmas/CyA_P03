@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
   std::ofstream texto_salida (argv[2]);
   std::string lineas;  //Variable que guardará el contenido del fichero
   std::string alfabeto; //Variable auxiliar para construir el vector del alfabeto
-  std::string caracter;
+  std::string caracter; //Variable auxiliar para construir el objeto Simbolo
   std::string nueva_cadena; //Variable para concatenar 
   std::string convertir = argv[3];
   int numero = stoi(convertir); //El opcode de la operación
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]) {
     std::cin >> nueva_cadena;
   }
 
-  if (numero == 8) {
+  if (numero == 8) { //En el caso del número ser igual 8 solicita que se inserte una potencia, en caso de ser negativa, avisa de ello y vuelve a solicitarla
     std::cout << "Inserte potencia a elevar: ";
     std::cin >> potencia; 
     if(potencia <= -1) {
@@ -48,7 +48,7 @@ int main(int argc, char* argv[]) {
     }
   }
 
-  if (numero >= 9 || numero <= 0) {
+  if (numero >= 9 || numero <= 0) { //Si se pone la opción equivocada da un aviso de como usar
     std::cout << "Inserte de nuevo una opción en el intervalo de [1 - 8]" << std::endl;
   }
      
@@ -81,9 +81,10 @@ int main(int argc, char* argv[]) {
      case 8: Texto.Potencia(lineas, potencia, texto_salida);
       break;
     }
-        
+       
 
   //Texto.PrintCadenas(texto_salida);
+  //Texto.PrintFraccion(texto_salida);
   //Simbolo.PrintSimbolo(texto_salida);
   //conjunto.PrintAlfabeto(texto_salida);
  
